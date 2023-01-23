@@ -8,11 +8,19 @@ RSpec.describe Bank do
   end
 
   it "should printing statement with credit 1000 after deposit 1000" do
-    bank = Bank.new
-    bank.deposit(1000)
-    result = bank.printing_statement("09/01/2023",1000,0,0)
-    expect(result).to eq("date || credit || debit || balance \n 09/01/2023 || 1000|| || 0.00")
-    end
+  bank = Bank.new
+  bank.deposit(1000)
+  result = bank.printing_statement("09/01/2023",1000,0,0)
+  expect(result).to eq("date || credit || debit || balance \n 09/01/2023 || 1000.00|| || 1000.00")
+  end
+
+  it "should printing currect balance 2000 after deposit 1000 again" do
+  bank = Bank.new
+  bank.deposit(1000)
+  bank.deposit(1000)
+  result = bank.printing_statement("09/01/2023",1000,0,0)
+  expect(result).to eq("date || credit || debit || balance \n 09/01/2023 || 1000.00|| || 2000.00")
+  end
 end
 
 
