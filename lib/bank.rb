@@ -4,8 +4,14 @@ class Bank
     @bank_statement = []
   end
 
-  def printing_statement(date,credit,debit,balance)
-    return header +  " 09/01/2023 || #{@credit} || #{@debit} || #{@balance}"
+  def bank_statement(date,credit,debit,balance)
+    @bank_statement.push(date,credit,debit,balance)
+    @date = date
+    return header +  " #{@date} || #{@credit} || #{@debit} || #{@balance}"
+  end
+
+  def printing_bank_statement(bank_statement)
+    @bank_statement = bank_statement
   end
 
   def header
@@ -32,5 +38,7 @@ bank = Bank.new
 bank.deposit(1000)
 bank.deposit(2000)
 bank.withdrawal(500)
-puts bank.printing_statement("09/01/2023",0,0,0)
+puts bank.bank_statement("09/01/2023",0,0,0)
+bank_statement = "09/01/2023",0,0,0
+puts bank.printing_bank_statement(bank_statement)
 
