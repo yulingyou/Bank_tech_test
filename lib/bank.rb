@@ -5,18 +5,25 @@ class Bank
 
   def printing_statement(date,credit,debit,balance)
     puts "balance1:#{@balance}"
-    return "date || credit || debit || balance \n 09/01/2023 || #{@amount}|| || #{@balance}"
+    return "date || credit || debit || balance \n 09/01/2023 || #{@credit} || #{@debit} || #{@balance}"
    
   end
 
-  def deposit(amount)
-    @amount = '%.2f' % amount
-    puts @amount 
+  def deposit(credit)
+    @credit = '%.2f' % credit
+    puts @credit 
     puts "balance2:#{@balance}"
     
-    @balance = @amount.to_i + @balance.to_i
+    @balance = @credit.to_i + @balance.to_i
     @balance = '%.2f' % @balance
     puts "balance3:#{@balance}"
+  end
+
+  def withdrawal(debit)
+    @credit = nil
+    @debit = '%.2f' % debit
+    @balance = @balance.to_i - @debit.to_i
+    @balance = '%.2f' % @balance
   end
 end
 
