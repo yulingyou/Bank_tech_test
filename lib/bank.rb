@@ -12,6 +12,7 @@ class Bank
 
   def printing_bank_statement(bank_statement)
     @bank_statement = bank_statement
+    puts @bank_statement
     return header +  " #{@date} || #{@credit} || #{@debit} || #{@balance}"
   end
 
