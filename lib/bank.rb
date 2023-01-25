@@ -38,11 +38,5 @@ class Bank
   end
 end
 
-bank = Bank.new
-bank.deposit("09/01/2023",1000)
-bank.deposit("09/01/2023",2000)
-bank.withdrawal("09/01/2023",500)
-puts bank.bank_statement("09/01/2023",0,0,0)
-bank_statement = "09/01/2023",0,0,0
-puts bank.printing_bank_statement(bank_statement)
+
 

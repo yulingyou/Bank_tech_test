@@ -21,3 +21,23 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
+Result 
+
+```
+ => #<Bank:0x0000000153351ea8 @balance="0.00", @bank_statement=[]> 
+ => "date || credit || debit || balance \n 09/01/2023 ||  ||  || 0.00" 
+3.0.0 :004 > bank.deposit("09/01/2023",1000)
+ => "1000.00" 
+3.0.0 :005 > bank.bank_statement("09/01/2023",1000,0,0)
+ => "date || credit || debit || balance \n 09/01/2023 || 1000.00 ||  || 1000.00" 
+3.0.0 :006 > bank.deposit("09/01/2023",1000)
+ => "2000.00" 
+3.0.0 :007 > bank.bank_statement("09/01/2023",1000,0,0)
+ => "date || credit || debit || balance \n 09/01/2023 || 1000.00 ||  || 2000.00" 
+3.0.0 :008 > bank.withdrawal("09/01/2023",500)
+ => "1500.00" 
+3.0.0 :009 > bank.bank_statement("09/01/2023",0,500,0)
+ => "date || credit || debit || balance \n 09/01/2023 ||  || 500.00 || 1500.00" 
+3.0.0 :010 > 
+```
